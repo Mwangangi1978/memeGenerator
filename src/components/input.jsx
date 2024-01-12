@@ -1,9 +1,9 @@
 import React from 'react';
 import { Input } from '@chakra-ui/react';
 
-const Form = ()=>{
+const Form = (props)=>{
     return(
-        <Input variant='outline' placeholder='Meme Text Here'style={{
+        <Input variant='outline' placeholder={props.placeholder}style={{
             marginLeft:'10px',
             marginRight: '10px',
         }} />

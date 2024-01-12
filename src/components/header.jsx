@@ -12,9 +12,10 @@ const Header = ()=>{
             <Flex 
                 flexDirection='row' 
                 alignItems='center'
-                width='100vw'
+                width= 'auto'
                 borderBottom='black solid 0.1rem'
-                
+                marginLeft={'1rem'}
+                marginRight={'1rem'}
             >
                 <img src="/download.jpg"
                     style={{

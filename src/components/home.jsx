@@ -11,9 +11,9 @@ const Home = ()=>{
         <Flex flexDir={'column'}>
             <Header/>
             <Flex>
-                <Form/>
+                <Form placeholder="Top Text"/>
                 <Spacer/>
-                <Form/>
+                <Form  placeholder="Bottom Text"/>
             </Flex>
             <MemeButton/>
         </Flex>

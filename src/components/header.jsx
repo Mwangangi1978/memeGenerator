@@ -1,11 +1,32 @@
 import React from 'react';
+import { Flex, Spacer,Text } from '@chakra-ui/react';
 
 const Header = ()=>{
     return(
-        <nav  class="flex flex-row space-between align-center">
-            <img src="/download.jpg"></img>
-            <h1>Meme Generator</h1>
-            <p>Project 3</p>
+        <nav 
+        style={{
+            marginBottom: '20px',
+            backgroundColor:'#805AD5'
+            
+        }}>
+            <Flex 
+                flexDirection='row' 
+                alignItems='center'
+                width='100vw'
+                borderBottom='black solid 0.1rem'
+                
+            >
+                <img src="/download.jpg"
+                    style={{
+                        width: '3rem',
+                        height: '3rem'
+                    }}
+                ></img>
+                <Spacer />
+                <Text style={{fontWeight: 'bold', fontSize: 'lg', color:'white'}}>Meme Generator</Text>
+                <Spacer />
+                <Text style={{fontSize: 'md', color: 'white'}}>Project 3</Text>
+            </Flex>
         </nav>
     )
 }

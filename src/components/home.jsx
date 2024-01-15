@@ -3,7 +3,7 @@ import Header from './header'
 import { Flex, Spacer,Text ,Image, Box} from '@chakra-ui/react';
 import Form from './input'
 import MemeButton from './button'
-import { json } from 'react-router-dom';
+
 
 
 
@@ -20,7 +20,8 @@ const Home = ()=>{
         async function getMemes() {
             const res = await fetch("https://api.imgflip.com/get_memes")
             const data = await res.json()
-            setAllMemes(data.data.memes)
+            console.log(data)
+            setInfo(data)
         }
         getMemes()
     },[])

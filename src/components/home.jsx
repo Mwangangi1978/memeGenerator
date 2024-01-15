@@ -3,7 +3,6 @@ import Header from './header'
 import { Flex, Spacer,Text ,Image, Box} from '@chakra-ui/react';
 import Form from './input'
 import MemeButton from './button'
-import info from '../memesData'
 import { json } from 'react-router-dom';
 
 

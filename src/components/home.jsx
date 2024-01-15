@@ -3,35 +3,59 @@ import Header from './header'
 import { Flex, Spacer,Text ,Image, Box} from '@chakra-ui/react';
 import Form from './input'
 import MemeButton from './button'
-import data from '../memesData'
+import info from '../memesData'
 
 
 
 
 const Home = ()=>{
-    const [url, setUrl] = useState(null)
-    function getMemeImage() {
-        const memesArray = data.data.memes
+    const [data, setData] = useState({
+        topText: "",
+        bottomText: "",
+        image:"http://i.imgflip.com/1bij.jpg"
+    })
+    
+    const getMemeImage =() => {
+        const memesArray = info.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
-        setUrl(url)
+        setData(prevData => ({
+            ...prevData,
+            image: url
+        }))
     }
-    
+    const handleChange = (event)=>{
+        const{name, value} = event.target
+        return(
+            setData(prevData => ({
+                ...prevData,
+                [name]: value
+                
+            })) 
+        )
+    }
 
     return(
         <Flex flexDir={'column'}>
             <Header/>
             <Flex>
-                <Form placeholder="Top Text"/>
+                <Form placeholder="Top Text" name="topText" value={data.topText} onChange={handleChange}/>
                 <Spacer/>
-                <Form  placeholder="Bottom Text"/>
+                <Form  placeholder="Bottom Text"  name="bottomText" value={data.bottomText} onChange={handleChange}/>
             </Flex>
+
             <MemeButton onClick={getMemeImage}/>
+           
+            
             <Box alignSelf={'center'} margin={'20px'} maxWidth={'auto'} maxHeight={'auto'}>
-                <Image
-                    objectFit='cover'
-                    src={url}
-                />
+                <div className="meme">
+                    <Image
+                        objectFit='cover'
+                        src={data.image}
+                    />
+                    <h2 className="meme--text top">{data.topText}</h2>
+                    <h2 className="meme--text bottom">{data.bottomText}</h2>
+                </div>
             </Box>
         </Flex>
     )

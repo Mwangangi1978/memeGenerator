@@ -26,7 +26,7 @@ const Header = ()=>{
                 <Spacer />
                 <Text style={{fontWeight: 'bold', fontSize: 'lg', color:'white'}}>Meme Generator</Text>
                 <Spacer />
-                <Text style={{fontSize: 'md', color: 'white'}}>Project 3</Text>
+                <Text style={{fontSize: 'md', color: 'white'}}>Mwangangi Project 3</Text>
             </Flex>
         </nav>
     )

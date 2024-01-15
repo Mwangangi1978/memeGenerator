@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './header'
 import { Flex, Spacer,Text ,Image, Box} from '@chakra-ui/react';
 import Form from './input'
 import MemeButton from './button'
 import info from '../memesData'
+import { json } from 'react-router-dom';
 
 
 
@@ -14,6 +15,16 @@ const Home = ()=>{
         bottomText: "",
         image:"http://i.imgflip.com/1bij.jpg"
     })
+    const [info, setInfo] = useState({})
+
+    useEffect(()=>{
+        async function getMemes() {
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+        getMemes()
+    },[])
     
     const getMemeImage =() => {
         const memesArray = info.data.memes
